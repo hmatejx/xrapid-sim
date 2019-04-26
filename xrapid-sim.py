@@ -1,6 +1,7 @@
 # import the libraries we will be using
 import ccxt
 import argparse
+from forex_python.converter import CurrencyRates
 
 # configure the command line argument parser
 parser = argparse.ArgumentParser(description='Estimate the cost of an xRapid-style fiat transfer between two exchanges.')
@@ -93,10 +94,13 @@ print('Sell trade fee: {:.2f} {}'.format(sell_fee, dest_cur))
 dest_amount -= sell_fee
 print('Net: {:.2f} {}'.format(dest_amount, dest_cur))
 
-
-    
-    
-    
-        
-    
-    
+# Compare with current FX rate
+c = CurrencyRates()
+fx = c.get_rate(source_cur, dest_cur)
+theoretical = fx*args.source_amount
+print()
+print('xRapid comparison to Forex exchange rates')
+print('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+print('Total dest amount (FX): {:.2f} {}'.format(theoretical, dest_cur))
+print('xRapid efficiency (FX): {:.2f}%'.format(100.0 * dest_amount / theoretical))
+print('xRapid fees       (FX): {:.2f}%'.format(100.0 * (1 - dest_amount / theoretical)))
