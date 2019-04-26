@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # import the libraries we will be using
 import ccxt
 import argparse
@@ -37,7 +38,7 @@ total_xrp_bought = 0.0
 source_amount = args.source_amount
 
 print("Getting order book for {} from {}".format(source_pair, source_ex.name))
-# Loop through the order book 'asks' 
+# Loop through the order book 'asks'
 for price,amount in source_orderbook['asks']:
     used_amount = min(source_amount, amount*price)
     xrp_bought = used_amount / price

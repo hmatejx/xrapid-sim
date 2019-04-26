@@ -1,5 +1,5 @@
 # xrapid-sim
-A simulator to simulate the costs of an xRapid transfer based on current prices
+A simulator to simulate the costs of an xRapid transfer based on current prices. The original project developed by Matt Hamilton can be accessed at https://github.com/hammertoe/xrapid-sim
 
 ## Install
 
@@ -12,41 +12,25 @@ A simulator to simulate the costs of an xRapid transfer based on current prices
 ## Running
 
 ```
-$ python xrapid-sim.py 4000 braziliex BRL bitso MXN 
-Getting order book for XRP/BRL from Braziliex
-+ Bought 515.37 XRP @ 1.1400
-+ Bought 1571.54 XRP @ 1.1600
-+ Bought 1358.55 XRP @ 1.1700
-Total Bought: 3445.45 XRP
-Buy trade fee: 17.23 XRP
-Net: 3428.22 XRP
+python3 xrapid-sim.py 5000 bittrex USD bitso MXN
+Getting order book for XRP/USD from Bittrex
++ Bought 16176.09 XRP @ 0.2920
++ Bought 943.97 XRP @ 0.2930
+Total Bought: 17120.05 XRP
+Buy trade fee: 42.80 XRP
+Net: 17077.25 XRP
 
-Sending the 3428.22 XRP from Braziliex to Bitso
+Sending the 17077.25 XRP from Bittrex to Bitso
 
 Getting order book for XRP/MXN from Bitso
-- Sold 3428.22 XRP @ 5.6500
-Total dest amount: 19369.46 MXN
-Sell trade fee: 125.90 MXN
-Net: 19243.56 MXN
-```
+- Sold 17077.25 XRP @ 5.5100
+Total dest amount: 94095.67 MXN
+Sell trade fee: 611.62 MXN
+Net: 93484.05 MXN
 
-You can specify an alternate transport currency too, eg:
-
-```
-$ python xrapid-sim.py 4000000 indodax IDR bitso MXN --transport BTC
-Getting order book for BTC/IDR from INDODAX
-+ Bought 0.08 BTC @ 50340000.0000
-Total Bought: 0.08 BTC
-Buy trade fee: 0.00 BTC
-Net: 0.08 BTC
-
-Sending the 0.08 BTC from INDODAX to Bitso
-
-Getting order book for BTC/MXN from Bitso
-- Sold 0.00 BTC @ 67880.1200
-- Sold 0.00 BTC @ 67879.7900
-- Sold 0.07 BTC @ 67877.1900
-Total dest amount: 5377.34 MXN
-Sell trade fee: 34.95 MXN
-Net: 5342.38 MXN
+xRapid comparison to Forex exchange rates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Total dest amount (FX): 95306.75 MXN
+xRapid efficiency (FX): 98.09%
+xRapid fees       (FX): 1.91%
 ```
