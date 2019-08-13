@@ -34,3 +34,12 @@ Total dest amount (FX): 95306.75 MXN
 xRapid efficiency (FX): 98.09%
 xRapid fees       (FX): 1.91%
 ```
+
+## Monitoring
+
+One can monitor the exchange rate for various (currently hardcoded) amounts of USD to MXN using the following command
+
+```
+# simulate the xRapid exchange rate every 30 seconds
+watch -n 30 "./monitor.sh | tee -a xRapid.csv"
+```
